@@ -26,7 +26,10 @@ function App() {
   } , [])
   return (
     <div className='app'>
-      {loading ? (<Loading></Loading>) : (<Courses courses={courses} removeCourse = {deleteCourse}></Courses>)}
+      <div className='content'>
+        {courses.length === 0 ? (<div><h2>Kursların Hepsi Silindi</h2><button onClick={() => {fetchCourse()}}>Yenile</button></div>) : (<div></div>)}
+        {loading ? (<Loading></Loading>) : (<Courses courses={courses} removeCourse = {deleteCourse}></Courses>)}
+      </div>
     </div>
   )
 }
